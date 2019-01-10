@@ -3,15 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019/1 | guohao</title>
+  <title>C语言 | guohao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="guohao">
-<meta property="og:url" content="http://yoursite.com/archives/2019/01/index.html">
+  <meta name="description" content="C 语言 1234&amp;gt;err：expression must have class type：&amp;gt;//指针用.   实体用-&amp;gt;&amp;gt;//就不会出错了&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言">
+<meta property="og:url" content="http://yoursite.com/2018/11/10/C 语言/index.html">
 <meta property="og:site_name" content="guohao">
+<meta property="og:description" content="C 语言 1234&amp;gt;err：expression must have class type：&amp;gt;//指针用.   实体用-&amp;gt;&amp;gt;//就不会出错了&amp;gt;">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-10T11:09:52.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guohao">
+<meta name="twitter:title" content="C语言">
+<meta name="twitter:description" content="C 语言 1234&amp;gt;err：expression must have class type：&amp;gt;//指针用.   实体用-&amp;gt;&amp;gt;//就不会出错了&amp;gt;">
   
     <link rel="alternate" href="/atom.xml" title="guohao" type="application/atom+xml">
   
@@ -64,164 +68,90 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-C 语言" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/10/C 语言/" class="article-date">
+  <time class="post-time" datetime="2018-11-10T01:44:12.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
         </div>
-        <div class="archives">
+      </header>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/shell脚本编写/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.877Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/MatLab使用/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.835Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
+        <h4 id="C-语言"><a href="#C-语言" class="headerlink" title="C 语言"></a>C 语言</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;err：expression must have <span class="class"><span class="keyword">class</span> <span class="title">type</span>：</span></span><br><span class="line"><span class="class">&gt;//指针用.   实体用-&gt;</span></span><br><span class="line"><span class="class">&gt;//就不会出错了</span></span><br><span class="line"><span class="class">&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<a id="more"></a>
+<h4 id="指针bug"><a href="#指针bug" class="headerlink" title="指针bug"></a>指针bug</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">int</span>  *p=<span class="literal">NULL</span>;</span><br><span class="line">&gt; </span><br><span class="line">&gt; *p=<span class="number">0</span>;</span><br><span class="line">&gt; <span class="comment">//出错</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>原因：</p>
+<p>p指针的地址为空，没有指向任何一块内存地址，因此不能给*p所指向的内存地址赋值</p>
+</blockquote>
+<h4 id="指针赋值"><a href="#指针赋值" class="headerlink" title="指针赋值"></a>指针赋值</h4><blockquote>
+<p>将一个类型的指针赋值给另一个类型的指针时，需要进行强制类型转换才行</p>
+<p>不然就会出错，例如将一个void*类型的指针赋值给uword8类型的指针时</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;buffer=(uword8*)poffset</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="打印指针"><a href="#打印指针" class="headerlink" title="打印指针"></a>打印指针</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">printf</span>(<span class="string">"pFirst:%d\n"</span>,pFirst);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/Makefile编写总结/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.823Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/10/C 语言/" data-id="cjqqinm070000zsvymxmgclvu" class="article-share-link">Share</a>
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/Linux命令使用/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.817Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
       
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/10/Linux命令使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux命令使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/06/ubuntu使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ubuntu使用</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/C++编写/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.752Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/C 语言/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.700Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/线程使用/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.568Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/机器学习/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.562Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/ubuntu使用/" class="archive-article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.478Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
-  </time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+
 
 
 </section>

@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>guohao</title>
+  <title>Makefile编写总结 | guohao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ubuntu使用 快捷键  切换窗口：  win+W ctr+win+D  切换应用  alt+table alt+`">
+  <meta name="description" content="Makefile编写总结 赋值操作 赋值符号有三种： = 直接将后面的字符串赋给变量 := 后面跟变量，将它的内容赋给变量 += 变量原来的值＋空格＋后面的字符串＝&amp;gt;新的变量值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="guohao">
-<meta property="og:url" content="http://yoursite.com/2019/01/10/ubuntu使用/index.html">
+<meta property="og:title" content="Makefile编写总结">
+<meta property="og:url" content="http://yoursite.com/2018/11/15/Makefile编写总结/index.html">
 <meta property="og:site_name" content="guohao">
-<meta property="og:description" content="ubuntu使用 快捷键  切换窗口：  win+W ctr+win+D  切换应用  alt+table alt+`">
+<meta property="og:description" content="Makefile编写总结 赋值操作 赋值符号有三种： = 直接将后面的字符串赋给变量 := 后面跟变量，将它的内容赋给变量 += 变量原来的值＋空格＋后面的字符串＝&amp;gt;新的变量值">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-10T11:05:35.472Z">
+<meta property="og:updated_time" content="2019-01-10T11:11:30.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guohao">
-<meta name="twitter:description" content="ubuntu使用 快捷键  切换窗口：  win+W ctr+win+D  切换应用  alt+table alt+`">
+<meta name="twitter:title" content="Makefile编写总结">
+<meta name="twitter:description" content="Makefile编写总结 赋值操作 赋值符号有三种： = 直接将后面的字符串赋给变量 := 后面跟变量，将它的内容赋给变量 += 变量原来的值＋空格＋后面的字符串＝&amp;gt;新的变量值">
   
     <link rel="alternate" href="/atom.xml" title="guohao" type="application/atom+xml">
   
@@ -68,12 +68,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-ubuntu使用" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-Makefile编写总结" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/10/ubuntu使用/" class="article-date">
-  <time class="post-time" datetime="2019-01-10T05:10:38.478Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br>
-    <span class="post-day">10</span>
+    <a href="/2018/11/15/Makefile编写总结/" class="article-date">
+  <time class="post-time" datetime="2018-11-15T01:44:12.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br>
+    <span class="post-day">15</span>
   </time>
 </a>
    
@@ -81,27 +81,45 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Makefile编写总结
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="ubuntu使用"><a href="#ubuntu使用" class="headerlink" title="ubuntu使用"></a>ubuntu使用</h4><hr>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><blockquote>
-<ul>
-<li>切换窗口：</li>
-</ul>
-<p>win+W</p>
-<p>ctr+win+D</p>
-<ul>
-<li>切换应用</li>
-</ul>
-<p>alt+table</p>
-<p>alt+`</p>
+        <h3 id="Makefile编写总结"><a href="#Makefile编写总结" class="headerlink" title="Makefile编写总结"></a>Makefile编写总结</h3><hr>
+<h4 id="赋值操作"><a href="#赋值操作" class="headerlink" title="赋值操作"></a>赋值操作</h4><blockquote>
+<p>赋值符号有三种：</p>
+<p>= 直接将后面的字符串赋给变量</p>
+<p>:= 后面跟变量，将它的内容赋给变量</p>
+<p>+= 变量原来的值＋空格＋后面的字符串＝&gt;新的变量值</p>
 </blockquote>
 <a id="more"></a>
+<h4 id="引用变量"><a href="#引用变量" class="headerlink" title="引用变量"></a>引用变量</h4><blockquote>
+<p>变量引用的三种格式：</p>
+<p>$(变量名)</p>
+<p>${变量名}</p>
+<p>当变量名为单个字符时，可以省略括号</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/iEearth/article/details/47296429" target="_blank" rel="noopener">https://blog.csdn.net/iEearth/article/details/47296429</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/ubuntu使用/" data-id="cjqqichsw00054cvygur3pnru" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/15/Makefile编写总结/" data-id="cjqqinm0k0003zsvyzi7wa8rz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,19 +128,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/10/机器学习/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/15/C++编写/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          C++
         
       </div>
     </a>
   
   
-    <a href="/2018/12/04/word文档编辑/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/11/10/Linux命令使用/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">word编辑文档</div>
+      <div class="article-nav-title">Linux命令使用</div>
     </a>
   
 </nav>
