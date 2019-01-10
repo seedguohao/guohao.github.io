@@ -1924,6 +1924,9 @@ a.article-title:hover {
   color: #666;
   font-size: 0.85em;
 }
+.article-entry {
+  overflow: hidden;
+}
 .article-entry pre,
 .article-entry code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
