@@ -62,563 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-shell脚本编写" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-git使用" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/10/shell脚本编写/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.877Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="shell脚本编写"><a href="#shell脚本编写" class="headerlink" title="shell脚本编写"></a>shell脚本编写</h3><hr>
-<h4 id="第一个脚本"><a href="#第一个脚本" class="headerlink" title="第一个脚本"></a>第一个脚本</h4><blockquote>
-<p><strong>step1:</strong>    使用编辑器打开</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;echo <span class="string">"hello"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p><strong>step2:</strong>   使用vim打开这个脚本</p>
-<p>由于如果在windows环境下编写程序之后，文本的格式在linux下面会出问题，因此需要进行如下操作</p>
-<p>但是如果使用notepad++编辑，可以在右下角直接设置编码格式为unix，就不需要这么繁琐的操作了</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;#输入：</span><br><span class="line">&gt;：<span class="built_in">set</span> ff</span><br><span class="line">&gt;#如果显示fileformat=dos</span><br><span class="line">&gt;#则输入</span><br><span class="line">&gt;：<span class="built_in">set</span> ff=unix</span><br><span class="line">&gt;#然后保存退出</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p><strong>step3：</strong>运行</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;chmod +x test1</span><br><span class="line">&gt;./test1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>或者运行</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;chmod <span class="number">755</span> test1</span><br><span class="line">&gt;./test1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>或者运行</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;sh test1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><blockquote>
-<p>定义变量</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;your_name=<span class="string">"qinjx"</span></span><br><span class="line">&gt;#注意变量名和等号之间不能有空格</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>使用变量</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;your_name=<span class="string">"qinjx"</span></span><br><span class="line">&gt;echo $your_name</span><br><span class="line">&gt;#或者使用花括号将变量括起来，加不加都行，加花括号是为了帮助解释器识别变量的边界</span><br><span class="line">&gt;echo $&#123;your_name&#125;</span><br><span class="line">&gt;#例如下面情景</span><br><span class="line">&gt;echo <span class="string">"I am good at $&#123;skill&#125;Script"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>重定义变量</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;your_name=<span class="string">"qinjx"</span></span><br><span class="line">&gt;echo $your_name</span><br><span class="line">&gt;</span><br><span class="line">&gt;your_name=<span class="string">"alibaba"</span></span><br><span class="line">&gt;echo $your_name</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><blockquote>
-<p>字符串可以用单引号，也可以用双引号，也可以不用引号</p>
-<p>单引号：</p>
-<ul>
-<li><p>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</p>
-</li>
-<li><p>单引号字串中不能出现单引号（对单引号使用转义符后也不行）</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;str='this is a string'</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>双引号</p>
-<ul>
-<li>双引号里可以有变量</li>
-<li>双引号里可以出现转义字符</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;your_name='qinjx'</span><br><span class="line">&gt;str=<span class="string">"Hello, I know your are \"$your_name\"! \n"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>获取字符串长度</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">string</span>=<span class="string">"abcd"</span></span><br><span class="line">&gt;echo $&#123;#<span class="built_in">string</span>&#125; #输出：<span class="number">4</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第二个脚本-打印当前路径"><a href="#第二个脚本-打印当前路径" class="headerlink" title="第二个脚本(打印当前路径)"></a>第二个脚本(打印当前路径)</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;path=`pwd`</span><br><span class="line">&gt;#注意这个是键盘左上角的符号</span><br><span class="line">&gt;</span><br><span class="line">&gt;echo <span class="string">"$path"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;echo <span class="string">"hello"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第三个脚本（字符串和变量）"><a href="#第三个脚本（字符串和变量）" class="headerlink" title="第三个脚本（字符串和变量）"></a>第三个脚本（字符串和变量）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;path=`pwd`</span><br><span class="line">&gt;echo <span class="string">"$path"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;value=<span class="string">"guohao"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;echo '$value'</span><br><span class="line">&gt;echo <span class="string">"$value"</span></span><br><span class="line">&gt;echo $value</span><br><span class="line">&gt;#这三种均可以</span><br><span class="line">&gt;</span><br><span class="line">&gt;echo <span class="string">"I am  "</span>$value<span class="string">"hello "</span> </span><br><span class="line">&gt;echo <span class="string">"I am  $&#123;value&#125;hello "</span></span><br><span class="line">&gt;echo <span class="string">"I am  &#123;$value&#125;hello "</span></span><br><span class="line">&gt;echo <span class="string">"I am  \"$value\"hello "</span></span><br><span class="line">&gt;#总结：使用  <span class="string">"$value"</span>  或者使用 $&#123;value&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>打印结果</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;$value</span><br><span class="line">&gt;guohao</span><br><span class="line">&gt;guohao</span><br><span class="line">&gt;I am  guohaohello</span><br><span class="line">&gt;I am  guohaohello</span><br><span class="line">&gt;I am  &#123;guohao&#125;hello</span><br><span class="line">&gt;I am  <span class="string">"guohao"</span>hello</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="条件控制-if判断"><a href="#条件控制-if判断" class="headerlink" title="条件控制(if判断)"></a>条件控制(if判断)</h4><blockquote>
-<p>if语句</p>
-<p>h里的if [ $foo -eq 0 ]，这个方括号跟Java/PHP里if后面的圆括号大不相同，它是一个可执行程序</p>
-<p>正因为方括号在这里是一个可执行程序，方括号后面必须加空格，不能写成if [$foo -eq 0]</p>
-<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">if</span> condition</span><br><span class="line">&gt;then</span><br><span class="line">&gt;	command1 </span><br><span class="line">&gt;	command2</span><br><span class="line">&gt;	...</span><br><span class="line">&gt;	commandN </span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<h4 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">if</span> condition</span><br><span class="line">&gt;then</span><br><span class="line">&gt;	command1 </span><br><span class="line">&gt;	command2</span><br><span class="line">&gt;	...</span><br><span class="line">&gt;	commandN</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;	command</span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<h4 id="if-else-if-else"><a href="#if-else-if-else" class="headerlink" title="if else-if else"></a>if else-if else</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">if</span> condition1</span><br><span class="line">&gt;then</span><br><span class="line">&gt;	command1</span><br><span class="line">&gt;elif condition2</span><br><span class="line">&gt;	command2</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;	commandN</span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第四个脚本（if判断）"><a href="#第四个脚本（if判断）" class="headerlink" title="第四个脚本（if判断）"></a>第四个脚本（if判断）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;<span class="keyword">if</span> [ $# -eq <span class="number">0</span> ]</span><br><span class="line">&gt;then </span><br><span class="line">&gt;	echo <span class="string">"wrong"</span></span><br><span class="line">&gt;elif [ $# -eq <span class="number">1</span> ]</span><br><span class="line">&gt;then</span><br><span class="line">&gt;	<span class="keyword">if</span> [ $<span class="number">1</span> == GH ]</span><br><span class="line">&gt;	then </span><br><span class="line">&gt;		echo <span class="string">"good"</span></span><br><span class="line">&gt;		</span><br><span class="line">&gt;	elif [ $<span class="number">1</span> == GH2 ]</span><br><span class="line">&gt;	then </span><br><span class="line">&gt;		echo <span class="string">"happy"</span></span><br><span class="line">&gt;		</span><br><span class="line">&gt;	<span class="keyword">else</span></span><br><span class="line">&gt;		echo <span class="string">"nice"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;	fi</span><br><span class="line">&gt;	</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;	echo <span class="string">"parameter error"</span></span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br><span class="line">&gt;#注意</span><br><span class="line">&gt;#<span class="number">1.</span> <span class="keyword">if</span> [ $# -eq <span class="number">0</span> ]和<span class="keyword">if</span> [ $<span class="number">1</span> == GH ]的区别：数字使用-eq，字符串使用==</span><br><span class="line">&gt;#<span class="number">2.</span> <span class="keyword">if</span> [ $<span class="number">1</span> == GH ]中左右方框要用空格隔开</span><br><span class="line">&gt;#<span class="number">3.</span> <span class="keyword">if</span> [ $<span class="number">1</span> == GH ]中GH可以用双引号，也可以不用双引号</span><br><span class="line">&gt;#<span class="number">4.</span> 整个程序设计的时候一定要注意首先要判断输入的参数个数，否则会有exception</span><br><span class="line">&gt;#<span class="number">5.</span> 一定要用fi结束，否则会报错</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="条件控制-for循环"><a href="#条件控制-for循环" class="headerlink" title="条件控制(for循环)"></a>条件控制(for循环)</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">for</span> var in item1 item2 ... itemN</span><br><span class="line">&gt;<span class="keyword">do</span></span><br><span class="line">&gt;	command1</span><br><span class="line">&gt;	command2</span><br><span class="line">&gt;	...</span><br><span class="line">&gt;	commandN</span><br><span class="line">&gt;done</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第五个脚本（for循环）"><a href="#第五个脚本（for循环）" class="headerlink" title="第五个脚本（for循环）"></a>第五个脚本（for循环）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;#############</span><br><span class="line">&gt;<span class="keyword">for</span> i in a b c</span><br><span class="line">&gt;<span class="keyword">do</span></span><br><span class="line">&gt;	echo $i</span><br><span class="line">&gt;done</span><br><span class="line">&gt;##############</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;##############</span><br><span class="line">&gt;<span class="keyword">for</span> i in &#123;<span class="number">1.</span><span class="number">.20</span>&#125;</span><br><span class="line">&gt;<span class="keyword">do</span></span><br><span class="line">&gt;	echo $i</span><br><span class="line">&gt;done</span><br><span class="line">&gt;##############</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;##############</span><br><span class="line">&gt;value=`pwd`</span><br><span class="line">&gt;value2=<span class="string">"$&#123;value&#125;/../*"</span></span><br><span class="line">&gt;<span class="keyword">for</span> file in $value2</span><br><span class="line">&gt;<span class="keyword">do</span> </span><br><span class="line">&gt;	echo $file</span><br><span class="line">&gt;done</span><br><span class="line">&gt;##############</span><br><span class="line">&gt;#注意：</span><br><span class="line">&gt;#最后一个脚本是罗列出脚本所在位置的上一层目录中的所有文件</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>for循环判断文件是否存在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;f1=&quot;/home/guohao/Code/Document/shell_1218/../nn&quot;</span><br><span class="line">&gt;f2=&quot;/home/guohao/Code/Document/shell_1218/../mm&quot;</span><br><span class="line">&gt;f3=&quot;/home/guohao/Code/Document/shell_1218/../qq&quot;</span><br><span class="line">&gt;filename=&quot;$f2 $f1 $f3&quot;</span><br><span class="line">&gt;for file in $filename</span><br><span class="line">&gt;do </span><br><span class="line">&gt;	if [ -f $file ]</span><br><span class="line">&gt;	then</span><br><span class="line">&gt;		echo &quot;&quot;$file&quot; exit&quot;</span><br><span class="line">&gt;	else</span><br><span class="line">&gt;		echo &quot;&quot;$file&quot; miss&quot;</span><br><span class="line">&gt;	fi</span><br><span class="line">&gt;done</span><br><span class="line">&gt;#注意filename需要用双引号</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>扩展：判断文件是否存在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; # 这里的-x 参数判断$myPath是否存在并且是否具有可执行权限 </span><br><span class="line">&gt;8. if [ ! -x &quot;$myPath&quot;]; then </span><br><span class="line">&gt;9. mkdir &quot;$myPath&quot; </span><br><span class="line">&gt;10. fi </span><br><span class="line">&gt;</span><br><span class="line">&gt;# 这里的-d 参数判断$myPath是否存在 </span><br><span class="line">&gt;13. if [ ! -d &quot;$myPath&quot;]; then </span><br><span class="line">&gt;14. mkdir &quot;$myPath&quot; </span><br><span class="line">&gt;15. fi </span><br><span class="line">&gt;</span><br><span class="line">&gt;# 这里的-f参数判断$myFile是否存在 </span><br><span class="line">&gt;18. if [ ! -f &quot;$myFile&quot; ]; then </span><br><span class="line">&gt;19. touch &quot;$myFile&quot; </span><br><span class="line">&gt;20. fi </span><br><span class="line">&gt;</span><br><span class="line">&gt;# 其他参数还有-n,-n是判断一个变量是否是否有值 </span><br><span class="line">&gt;23. if [ ! -n &quot;$myVar&quot; ]; then </span><br><span class="line">&gt;24. echo &quot;$myVar is empty&quot; </span><br><span class="line">&gt;25. exit 0 </span><br><span class="line">&gt;26. fi  </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">while</span> condition</span><br><span class="line">&gt;<span class="keyword">do</span></span><br><span class="line">&gt;	command</span><br><span class="line">&gt;done</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第六个脚本（while循环读入文件）"><a href="#第六个脚本（while循环读入文件）" class="headerlink" title="第六个脚本（while循环读入文件）"></a>第六个脚本（while循环读入文件）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;f1=<span class="string">"/home/guohao/Code/Document/shell_1218/../nn"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;<span class="keyword">while</span> read line</span><br><span class="line">&gt;<span class="keyword">do</span> </span><br><span class="line">&gt;	echo $line</span><br><span class="line">&gt;done &lt; $f1</span><br><span class="line">&gt;</span><br><span class="line">&gt;#注意要读入什么文件就用  done &lt; filename</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="字符串和整数比较-进阶"><a href="#字符串和整数比较-进阶" class="headerlink" title="字符串和整数比较(进阶)"></a>字符串和整数比较(进阶)</h4><blockquote>
-<p>整数比较</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;-eq 等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -eq <span class="string">"$b"</span> ] </span><br><span class="line">&gt;-ne 不等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -ne <span class="string">"$b"</span> ] </span><br><span class="line">&gt;-gt 大于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -gt <span class="string">"$b"</span> ] </span><br><span class="line">&gt;-ge 大于等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -ge <span class="string">"$b"</span> ] </span><br><span class="line">&gt;-lt 小于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -lt <span class="string">"$b"</span> ] </span><br><span class="line">&gt;-le 小于等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> -le <span class="string">"$b"</span> ] </span><br><span class="line">&gt;&lt;   小于(需要双括号),如:((<span class="string">"$a"</span> &lt; <span class="string">"$b"</span>)) </span><br><span class="line">&gt;&lt;=  小于等于(需要双括号),如:((<span class="string">"$a"</span> &lt;= <span class="string">"$b"</span>)) </span><br><span class="line">&gt;&gt;   大于(需要双括号),如:((<span class="string">"$a"</span> &gt; <span class="string">"$b"</span>)) </span><br><span class="line">&gt;&gt;=  大于等于(需要双括号),如:((<span class="string">"$a"</span> &gt;= <span class="string">"$b"</span>))</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>字符串比较</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;= 等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> = <span class="string">"$b"</span> ] </span><br><span class="line">&gt;== 等于,如:<span class="keyword">if</span> [ <span class="string">"$a"</span> == <span class="string">"$b"</span> ],与=等价 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>规范</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;比较两个字符串是否相等的办法是：</span><br><span class="line">&gt;<span class="keyword">if</span> [ <span class="string">"$test"</span>x = <span class="string">"test"</span>x ]; then</span><br><span class="line">&gt;这里的关键有几点：</span><br><span class="line">&gt;<span class="number">1</span> 使用单个等号</span><br><span class="line">&gt;<span class="number">2</span> 注意到等号两边各有一个空格：这是unix shell的要求</span><br><span class="line">&gt;<span class="number">3</span> 注意到<span class="string">"$test"</span>x最后的x，这是特意安排的，因为当$test为空的时候，上面的表达式就变成了x = testx，显然是不相等的。而如果没有这个x，表达式就会报错：[: =: unary <span class="keyword">operator</span> expected</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="echo-输出参数"><a href="#echo-输出参数" class="headerlink" title="echo 输出参数"></a>echo 输出参数</h4><blockquote>
-<p>-n参数：不换行输出</p>
-<p>-e参数：处理特殊字符</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;\a 发出警告声；</span><br><span class="line">&gt;\b 删除前一个字符；</span><br><span class="line">&gt;\c 最后不加上换行符号；</span><br><span class="line">&gt;\f 换行但光标仍旧停留在原来的位置；</span><br><span class="line">&gt;\n 换行且光标移至行首；</span><br><span class="line">&gt;\r 光标移至行首，但不换行；</span><br><span class="line">&gt;\t 插入tab；</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;$echo -e <span class="string">"a\ndddd"</span> <span class="comment">//自动换行</span></span><br><span class="line">&gt;a</span><br><span class="line">&gt;dddd</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="test命令"><a href="#test命令" class="headerlink" title="test命令"></a>test命令</h4><blockquote>
-<p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。</p>
-<p>数字测试</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;num1=<span class="number">100</span></span><br><span class="line">&gt;num2=<span class="number">100</span></span><br><span class="line">&gt;<span class="keyword">if</span> test $[num1] -eq $[num2]</span><br><span class="line">&gt;then</span><br><span class="line">&gt;    echo '两个数相等！'</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;    echo '两个数不相等！'</span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>字符串测试</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;num1=<span class="string">"ru1noob"</span></span><br><span class="line">&gt;num2=<span class="string">"runoob"</span></span><br><span class="line">&gt;<span class="keyword">if</span> test $num1 = $num2</span><br><span class="line">&gt;then</span><br><span class="line">&gt;    echo '两个字符串相等!'</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;    echo '两个字符串不相等!'</span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>文件测试</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;cd /bin</span><br><span class="line">&gt;<span class="keyword">if</span> test -e ./bash</span><br><span class="line">&gt;then</span><br><span class="line">&gt;    echo '文件已存在!'</span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;    echo '文件不存在!'</span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第七个脚本（test文件测试）"><a href="#第七个脚本（test文件测试）" class="headerlink" title="第七个脚本（test文件测试）"></a>第七个脚本（test文件测试）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;value1=<span class="string">"string1"</span></span><br><span class="line">&gt;value2=<span class="string">"string1"</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;<span class="keyword">if</span> test $value1 == $value2 </span><br><span class="line">&gt;then </span><br><span class="line">&gt;	echo <span class="string">"value1=value2"</span></span><br><span class="line">&gt;<span class="keyword">else</span></span><br><span class="line">&gt;	echo <span class="string">"value1!=value2"</span></span><br><span class="line">&gt;fi</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="case命令"><a href="#case命令" class="headerlink" title="case命令"></a>case命令</h4><blockquote>
-<p>esac（就是case反过来）作为结束标记</p>
-<p>每个case分支用右圆括号</p>
-<p>用两个分号表示break</p>
-<p>default使用*）来代替</p>
-</blockquote>
-<h4 id="第八个脚本（case分支）"><a href="#第八个脚本（case分支）" class="headerlink" title="第八个脚本（case分支）"></a>第八个脚本（case分支）</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;<span class="keyword">case</span> $<span class="number">1</span> in</span><br><span class="line">&gt;</span><br><span class="line">&gt;<span class="string">"GH"</span>)</span><br><span class="line">&gt;	echo <span class="string">"good"</span></span><br><span class="line">&gt;;;</span><br><span class="line">&gt;<span class="string">"GH2"</span>)</span><br><span class="line">&gt;	echo <span class="string">"happy"</span></span><br><span class="line">&gt;;;</span><br><span class="line">&gt;*)</span><br><span class="line">&gt;	echo <span class="string">"nice"</span></span><br><span class="line">&gt;esac</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="sleep命令"><a href="#sleep命令" class="headerlink" title="sleep命令"></a>sleep命令</h4><blockquote>
-<p>sleep命令常用于在shell脚本中延迟时间。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;格式：sleep &lt;n&gt;</span><br><span class="line">&gt;格式：sleep &lt;n&gt;s</span><br><span class="line">&gt;延迟&lt;n&gt;秒。</span><br><span class="line">&gt;</span><br><span class="line">&gt;格式：sleep &lt;n&gt;m</span><br><span class="line">&gt;延迟&lt;n&gt;分钟。</span><br><span class="line">&gt;</span><br><span class="line">&gt;格式：sleep &lt;n&gt;h</span><br><span class="line">&gt;延迟&lt;n&gt;小时。</span><br><span class="line">&gt;</span><br><span class="line">&gt;格式：sleep &lt;n&gt;d</span><br><span class="line">&gt;延迟&lt;n&gt;天。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="sed命令"><a href="#sed命令" class="headerlink" title="sed命令"></a>sed命令</h4><blockquote>
-<p>链接奉上：</p>
-<p><a href="https://coolshell.cn/articles/9104.html" target="_blank" rel="noopener">https://coolshell.cn/articles/9104.html</a></p>
-<p>其中比较重要的有</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;^ 表示一行的开头。如：/^#/ 以#开头的匹配。</span><br><span class="line">&gt;$ 表示一行的结尾。如：/&#125;$/ 以&#125;结尾的匹配。</span><br><span class="line">&gt;\&lt; 表示词首。 如：\&lt;abc 表示以 abc 为首的詞。</span><br><span class="line">&gt;\&gt; 表示词尾。 如：abc\&gt; 表示以 abc 結尾的詞。</span><br><span class="line">&gt;. 表示任何单个字符。</span><br><span class="line">&gt;* 表示某个字符出现了<span class="number">0</span>次或多次。</span><br><span class="line">&gt;[ ] 字符集合。 如：[abc] 表示匹配a或b或c，还有 [a-zA-Z] 表示匹配所有的<span class="number">26</span>个字符。如果其中有^表示反，如 [^a] 表示非a的字符</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="sed命令使用注意"><a href="#sed命令使用注意" class="headerlink" title="sed命令使用注意"></a>sed命令使用注意</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;参数 sed -i 选项会直接更改文本的内容</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;sed -i <span class="string">"/SectorNumer/s/[0-9]\+/$1/g"</span> data</span><br><span class="line">&gt;#解释：</span><br><span class="line">&gt;# 首先匹配含有SectorNumer的那一行</span><br><span class="line">&gt;#然后匹配含有数字<span class="number">0</span><span class="number">-9</span>的数字，这里的\+很重要</span><br><span class="line">&gt;#如果不加\+，那么假如$<span class="number">1</span>是<span class="number">3</span>，那么一位数可以正常工作，但是两位数例如<span class="number">75</span>就会被替换为<span class="number">33</span></span><br><span class="line">&gt;#也就是单个数字单个数字的替换了，这就不是我们想要的结果了</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;在一行刚开始使用井号， s/^/#/g</span><br><span class="line">&gt;如果一行是以空格开始才使用井号，s/^ /#/g</span><br><span class="line">&gt;这里在 ^ 之后多了个空格</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="第八个脚本（case分支）-1"><a href="#第八个脚本（case分支）-1" class="headerlink" title="第八个脚本（case分支）"></a>第八个脚本（case分支）</h4><blockquote>
-<p>data文本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;SectorNumer = <span class="number">60</span></span><br><span class="line">&gt;carry = <span class="number">75</span> </span><br><span class="line">&gt;mode = <span class="number">80</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;This is my dog</span><br><span class="line">&gt; It's  name is fish</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>sed脚本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;#!/bin/bash</span><br><span class="line">&gt;</span><br><span class="line">&gt;sed -i <span class="string">"/SectorNumer/s/[0-9]\+/$1/g"</span> data</span><br><span class="line">&gt;sed -i <span class="string">"/carry/s/[0-9]\+/$2/g"</span> data</span><br><span class="line">&gt;sed -i <span class="string">"/mode/s/[0-9]\+/$3/g"</span> data</span><br><span class="line">&gt;</span><br><span class="line">&gt;sed -i <span class="string">"s/SectorNumer/dog/g"</span> data</span><br><span class="line">&gt;sed -i <span class="string">"/This/s/dog/goat/g"</span> data</span><br><span class="line">&gt;sed -i <span class="string">"s/^/#/g"</span> data</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>执行：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;sh test1 <span class="number">3</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>data文本处理后的结果</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">#dog = 3</span></span><br><span class="line">&gt;<span class="meta">#carry = 1 </span></span><br><span class="line">&gt;<span class="meta">#mode = 1</span></span><br><span class="line">&gt;#</span><br><span class="line">&gt;#This is my goat</span><br><span class="line">&gt;# It's  name is fish</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><blockquote>
-<p>奉上链接</p>
-<p><a href="https://blog.csdn.net/wangqing_12345/article/details/51853282" target="_blank" rel="noopener">https://blog.csdn.net/wangqing_12345/article/details/51853282</a></p>
-</blockquote>
-<p>参考链接：</p>
-<p>字符串和整数比较：<a href="https://blog.csdn.net/yf210yf/article/details/9207147" target="_blank" rel="noopener">https://blog.csdn.net/yf210yf/article/details/9207147</a></p>
-<p>test测试：<a href="http://www.runoob.com/linux/linux-shell-test.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-shell-test.html</a></p>
-<p>脚本入门：<a href="https://github.com/qinjx/30min_guides/blob/master/shell.md" target="_blank" rel="noopener">https://github.com/qinjx/30min_guides/blob/master/shell.md</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/shell脚本编写/" data-id="cjqq5o12m0009u0vycy3lw4za" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MatLab使用" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/MatLab使用/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.835Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MatLab使用"><a href="#MatLab使用" class="headerlink" title="MatLab使用"></a>MatLab使用</h1><h4 id="向量和矩阵"><a href="#向量和矩阵" class="headerlink" title="向量和矩阵"></a>向量和矩阵</h4><ul>
-<li><p>向量的创建</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）直接输入：</span><br><span class="line"></span><br><span class="line">	行向量：a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">	列向量：a=[<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>;<span class="number">4</span>;<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>）用“:”生成向量</span><br><span class="line"></span><br><span class="line">    a=J:K 生成的行向量是a=[J,J+<span class="number">1</span>,…,K]</span><br><span class="line"></span><br><span class="line">    a=J:D:K 生成行向量a=[J,J+D,…,J+m*D],m=fix((K-J)/D)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>）函数linspace 用来生成数据按等差形式排列的行向量</span><br><span class="line"></span><br><span class="line">	x=linspace(X1,X2):在X1和X2间生成<span class="number">100</span>个线性分布的数据，相邻的两个数据的差保持不变。构成等差数 		列。</span><br><span class="line"></span><br><span class="line">     x=linspace(X1,X2,n): 在X1和X2间生成n个线性分布的数据，相邻的两个数据的差保持不变。构成等      差数列。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）函数logspace用来生成等比形式排列的行向量</span><br><span class="line"></span><br><span class="line">      X=logspace(x1,x2) 在x1和x2之间生成<span class="number">50</span>个对数等分数据的行向量。构成等比数列，数列的第一项	   x(<span class="number">1</span>)=<span class="number">10</span>x1,x(<span class="number">50</span>)=<span class="number">10</span>x2</span><br><span class="line"></span><br><span class="line">	  X=logspace(x1,x2,n) 在x1和x2之间生成n个对数等分数据的行向量。构成等比数列，数列的第一		  项x(<span class="number">1</span>)=<span class="number">10</span>x1,x(n)=<span class="number">10</span>x2</span><br><span class="line"></span><br><span class="line">      注：向量的的转置：x=(<span class="number">0</span>,<span class="number">5</span>)’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>矩阵的创建</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）直接输入：将数据括在[]中，同一行的元素用空格或逗号隔开，每一行可以用回车或是分号结束</span><br><span class="line"></span><br><span class="line">如：a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line"></span><br><span class="line">     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>）函数eye，生成单位矩阵</span><br><span class="line"></span><br><span class="line">eye(n) :生成n*n阶单位E</span><br><span class="line"></span><br><span class="line">eye(m,n):生成m*n的矩阵E，对角线元素为<span class="number">1</span>，其他为<span class="number">0</span></span><br><span class="line"></span><br><span class="line">eye(size(A))：生成一个矩阵Ａ大小相同的单位矩阵</span><br><span class="line"></span><br><span class="line">eye(m,n,classname):对角线上生成的元素是<span class="number">1</span>，数据类型用classname指定。其数据类型可以是：duoble、single、int8、uint8、int16、uint16、int32、uint32 。</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line"></span><br><span class="line"><span class="number">3</span>）函数ones  用ones生成全<span class="number">1</span>的矩阵</span><br><span class="line"></span><br><span class="line">ones(n) : 生成n*n的全<span class="number">1</span>矩阵</span><br><span class="line"></span><br><span class="line">ones(m,n) : 生成m*n的全<span class="number">1</span>矩阵</span><br><span class="line"></span><br><span class="line">ones(size(A)) : 生成与矩阵A大小相同的全<span class="number">1</span>矩阵</span><br><span class="line"></span><br><span class="line">ones(m,n,p,…)生成m*n*p*….的全<span class="number">1</span>的多维矩阵</span><br><span class="line"></span><br><span class="line">ones(m,n,…,classname)制定数据类型为classname</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）函数zeros 函数zeros生成全<span class="number">0</span>矩阵</span><br><span class="line"></span><br><span class="line">zeros(n):生成n*n的全<span class="number">0</span>矩阵</span><br><span class="line"></span><br><span class="line">zeros(m,n:)生成m*n的全<span class="number">0</span>矩阵</span><br><span class="line"></span><br><span class="line">zeros(size(A)): 生成与矩阵A大小相同的全<span class="number">0</span>矩阵</span><br><span class="line"></span><br><span class="line">zeros (m,n,p,…)生成m*n*p*….的全<span class="number">0</span>的多维矩阵</span><br><span class="line"></span><br><span class="line">zeros (m,n,…,classname)指定数据类型为classname</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">5</span>）函数rand 函数rand用来生成[<span class="number">0</span>,<span class="number">1</span>]之间均匀分布的随机函数，其调用格式是：</span><br><span class="line"></span><br><span class="line">Y=rand:生成一个随机数</span><br><span class="line"></span><br><span class="line">Y=rand(n):生成n*n的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=rand(m,n):生成m*n的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=rand(size(A)):生成与矩阵A大小相同的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=rand(m,n,p,…):生成m*n*p*…的随机数多维数组</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>）函数randn 函数rand用来生成服从正态分布的随机函数，其调用格式是：</span><br><span class="line"></span><br><span class="line">Y=randn:生成一个服从标准正态分布的随机数</span><br><span class="line"></span><br><span class="line">Y=randn(n):生成n*n的服从标准正态分布的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=randn(m,n):生成m*n的服从标准正态分布的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=randn(size(A)):生成与矩阵A大小相同的服从标准正态分布的随机矩阵</span><br><span class="line"></span><br><span class="line">Y=randn(m,n,p,…):生成m*n*p*…的服从标准正态分布的随机数多维数组</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>矩阵元素的提取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">1）  单个元素的提取</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a(1,2)</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     2      </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2）  提取矩阵中某一行的元素，</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a(1,:)</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     1     2     3</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">3）  提取矩阵中某一列：</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a(:,1)</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     1</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">4）  提取矩阵中的多行元素</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a([1,2],:)</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     1     2     3</span><br><span class="line"></span><br><span class="line">     3     4     5</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">5）  提取矩阵中的多列元素</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a(:,[1,3])</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     1     3</span><br><span class="line"></span><br><span class="line">     3     5</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">6）  提取矩阵中多行多列交叉点上的元素</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入b=a([1,2],[1,3])</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">     1     3</span><br><span class="line"></span><br><span class="line">     3     5</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">7）  单个元素的替换：</span><br><span class="line"></span><br><span class="line">如：a=[1,2,3;3,4,5],运行后：</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">    1     2     3</span><br><span class="line"></span><br><span class="line">    3     4     5</span><br><span class="line"></span><br><span class="line">输入：a(2,3)=-1</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     1     2     3</span><br><span class="line"></span><br><span class="line">     3     4    -1</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用%</span><br></pre></td></tr></table></figure>
-<h4 id="plot绘图"><a href="#plot绘图" class="headerlink" title="plot绘图"></a>plot绘图</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">x = <span class="number">0</span>:pi/<span class="number">100</span>:<span class="number">2</span>*pi;</span><br><span class="line">y = <span class="built_in">sin</span>(x);</span><br><span class="line">figure % 打开新的绘画窗口，可省略该句</span><br><span class="line">plot(x,y) %采用默认样式，绘制实线</span><br><span class="line"><span class="comment">//基本绘制方法</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'x'</span>)</span><br><span class="line">ylabel('sin(x)')</span><br><span class="line">title('Plot of the Sine Function')</span><br><span class="line"><span class="comment">//为图形添加横轴，纵轴，和标题</span></span><br><span class="line"><span class="comment">//注意需要保持plot窗口是打开的才行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hold  on</span><br><span class="line"><span class="comment">//多个图形的叠加</span></span><br><span class="line"></span><br><span class="line">grid on</span><br><span class="line"><span class="comment">//添加网格线</span></span><br></pre></td></tr></table></figure>
-<p>相关链接：</p>
-<p><a href="https://www.cnblogs.com/whxiyi/archive/2009/12/08/1619500.html" target="_blank" rel="noopener">https://www.cnblogs.com/whxiyi/archive/2009/12/08/1619500.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/MatLab使用/" data-id="cjqq5o11m0004u0vyfofjlvej" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Makefile编写总结" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/Makefile编写总结/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.823Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Makefile编写总结"><a href="#Makefile编写总结" class="headerlink" title="Makefile编写总结"></a>Makefile编写总结</h3><hr>
-<h4 id="赋值操作"><a href="#赋值操作" class="headerlink" title="赋值操作"></a>赋值操作</h4><blockquote>
-<p>赋值符号有三种：</p>
-<p>= 直接将后面的字符串赋给变量</p>
-<p>:= 后面跟变量，将它的内容赋给变量</p>
-<p>+= 变量原来的值＋空格＋后面的字符串＝&gt;新的变量值</p>
-</blockquote>
-<h4 id="引用变量"><a href="#引用变量" class="headerlink" title="引用变量"></a>引用变量</h4><blockquote>
-<p>变量引用的三种格式：</p>
-<p>$(变量名)</p>
-<p>${变量名}</p>
-<p>当变量名为单个字符时，可以省略括号</p>
-</blockquote>
-<p><a href="https://blog.csdn.net/iEearth/article/details/47296429" target="_blank" rel="noopener">https://blog.csdn.net/iEearth/article/details/47296429</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Makefile编写总结/" data-id="cjqq5o11j0003u0vye1zo45ah" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux命令使用" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/Linux命令使用/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.817Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux命令使用"><a href="#Linux命令使用" class="headerlink" title="Linux命令使用"></a>Linux命令使用</h1><h4 id="一、移动文件夹"><a href="#一、移动文件夹" class="headerlink" title="一、移动文件夹"></a>一、移动文件夹</h4><ul>
-<li>文件 </li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv dir1 dir2</span><br><span class="line"><span class="comment">//如果dir2目录不存在，将更改dir1为dir2</span></span><br><span class="line"><span class="comment">//否则将dir1移动到dir2</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>文件夹</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv -i log1.txt log2.txt</span><br><span class="line"><span class="comment">//将文件file1改名为file2，如果file2存在则询问是否覆盖</span></span><br><span class="line"><span class="comment">//会比较安全</span></span><br></pre></td></tr></table></figure>
-<h4 id="二、cd命令"><a href="#二、cd命令" class="headerlink" title="二、cd命令"></a>二、cd命令</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../../../../../</span><br><span class="line"><span class="comment">//使用cd命令回退多层目录</span></span><br></pre></td></tr></table></figure>
-<h4 id="linux共享内存大小查看"><a href="#linux共享内存大小查看" class="headerlink" title="linux共享内存大小查看"></a>linux共享内存大小查看</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//blog.csdn.net/shandianling/article/details/8922233</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Linux命令使用/" data-id="cjqq5o11h0002u0vy3fbhlo6y" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C++编写" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/C++编写/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.752Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="C-编写"><a href="#C-编写" class="headerlink" title="C++编写"></a>C++编写</h3><hr>
-<h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><blockquote>
-<p>C++的标准类库被修订了两次，有两个标准 C92和C99,这两个库现在都在并行使用，用 .h 包含的是c92 ，不带 .h 的是c99的头文件</p>
-<p>&lt;string.h&gt;是旧的C/C++头文件，对应的是基于char*的字符串处理函数；</p>
-<p><string>是包装了std的C++头文件，对应的是新的strng类；</string></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&gt;A是标准用法，B是老式用法。   </span><br><span class="line">&gt;  如果用了&lt;iostream&gt;，则一定要引入命名空间，即<span class="string">"using   namespace   std;"</span>.   </span><br><span class="line">&gt;  如果用了&lt;iostream.h&gt;，则不那引入命名空间，否则会引起编译错误，提示   </span><br><span class="line">&gt;  找不到命名空间，例程如下：   </span><br><span class="line">&gt;  <span class="comment">//情况一：使用&lt;iostream&gt;和命名空间   </span></span><br><span class="line">&gt;  <span class="meta">#<span class="meta-keyword">include</span>   <span class="meta-string">&lt;iostream&gt;   </span></span></span><br><span class="line">&gt;  <span class="keyword">using</span>   <span class="keyword">namespace</span>   <span class="built_in">std</span>;   </span><br><span class="line">&gt;  <span class="function"><span class="keyword">int</span>   <span class="title">main</span><span class="params">()</span>   </span></span><br><span class="line">&gt;  &#123;   </span><br><span class="line">&gt;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"&lt;iostream&gt;   need   to   use   namespace   std!/n"</span>;   </span><br><span class="line">&gt;  <span class="keyword">return</span>   <span class="number">0</span>;   </span><br><span class="line">&gt;  &#125;   </span><br><span class="line">&gt;  输出：   </span><br><span class="line">&gt;  &lt;iostream&gt;   need   to   use   <span class="keyword">namespace</span>   <span class="built_in">std</span>!   </span><br><span class="line">&gt;  Press   any   key   to   <span class="keyword">continue</span>   </span><br><span class="line">&gt;    </span><br><span class="line">&gt;  <span class="comment">//情况二：使用&lt;iostream.h&gt;，不引入命名空间   </span></span><br><span class="line">&gt;  <span class="meta">#<span class="meta-keyword">include</span>   <span class="meta-string">&lt;iostream.h&gt;   </span></span></span><br><span class="line">&gt;  <span class="comment">//using   namespace   std;   </span></span><br><span class="line">&gt;  <span class="function"><span class="keyword">int</span>   <span class="title">main</span><span class="params">()</span>   </span></span><br><span class="line">&gt;  &#123;   </span><br><span class="line">&gt;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"&lt;iostream&gt;   need   to   use   namespace   std!/n"</span>;   </span><br><span class="line">&gt;  <span class="keyword">return</span>   <span class="number">0</span>;   </span><br><span class="line">&gt;  &#125;   </span><br><span class="line">&gt;  输出：   </span><br><span class="line">&gt;  &lt;iostream&gt;   need   to   use   <span class="keyword">namespace</span>   <span class="built_in">std</span>!   </span><br><span class="line">&gt;  Press   any   key   to   <span class="keyword">continue</span>   </span><br><span class="line">&gt;    </span><br><span class="line">&gt;  <span class="comment">//情况三：使用&lt;iostream.h&gt;，引入命名空间，这时候编译出错   </span></span><br><span class="line">&gt;  <span class="meta">#<span class="meta-keyword">include</span>   <span class="meta-string">&lt;iostream.h&gt;   </span></span></span><br><span class="line">&gt;  <span class="keyword">using</span>   <span class="keyword">namespace</span>   <span class="built_in">std</span>;   </span><br><span class="line">&gt;  <span class="function"><span class="keyword">int</span>   <span class="title">main</span><span class="params">()</span>   </span></span><br><span class="line">&gt;  &#123;   </span><br><span class="line">&gt;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"&lt;iostream&gt;   need   to   use   namespace   std!/n"</span>;   </span><br><span class="line">&gt;  <span class="keyword">return</span>   <span class="number">0</span>;   </span><br><span class="line">&gt;  &#125;   </span><br><span class="line">&gt;  编译错误信息：   </span><br><span class="line">&gt;  error   C2871:   'std'   :   does   not   exist   or   is   not   a   namespace   </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/C++编写/" data-id="cjqq5o11e0001u0vydlo6xx8g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C 语言" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/C 语言/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.700Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="C-语言"><a href="#C-语言" class="headerlink" title="C 语言"></a>C 语言</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;err：expression must have <span class="class"><span class="keyword">class</span> <span class="title">type</span>：</span></span><br><span class="line"><span class="class">&gt;//指针用.   实体用-&gt;</span></span><br><span class="line"><span class="class">&gt;//就不会出错了</span></span><br><span class="line"><span class="class">&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="指针bug"><a href="#指针bug" class="headerlink" title="指针bug"></a>指针bug</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">int</span>  *p=<span class="literal">NULL</span>;</span><br><span class="line">&gt; </span><br><span class="line">&gt; *p=<span class="number">0</span>;</span><br><span class="line">&gt; <span class="comment">//出错</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>原因：</p>
-<p>p指针的地址为空，没有指向任何一块内存地址，因此不能给*p所指向的内存地址赋值</p>
-</blockquote>
-<h4 id="指针赋值"><a href="#指针赋值" class="headerlink" title="指针赋值"></a>指针赋值</h4><blockquote>
-<p>将一个类型的指针赋值给另一个类型的指针时，需要进行强制类型转换才行</p>
-<p>不然就会出错，例如将一个void*类型的指针赋值给uword8类型的指针时</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;buffer=(uword8*)poffset</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="打印指针"><a href="#打印指针" class="headerlink" title="打印指针"></a>打印指针</h4><blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">printf</span>(<span class="string">"pFirst:%d\n"</span>,pFirst);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/C 语言/" data-id="cjqq5o1110000u0vy083cein8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-线程使用" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/线程使用/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.568Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="线程使用"><a href="#线程使用" class="headerlink" title="线程使用"></a>线程使用</h1><h4 id="一、gcc-编译程序"><a href="#一、gcc-编译程序" class="headerlink" title="一、gcc 编译程序"></a>一、gcc 编译程序</h4><ul>
-<li><p>预处理</p>
-<blockquote>
-<p>主要处理#include和#define</p>
-<p>把#include包含进来的.h 文件插入到#include所在的位置</p>
-<p>把#define定义的宏用实际的字符串代替</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc -E main.c</span><br><span class="line"><span class="comment">//终端打印出很多中间的预处理信息</span></span><br><span class="line">gcc -E main.c  -o main.i</span><br><span class="line"><span class="comment">//终端不打印，而是输出到main.i的文件中，可以进行查看</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译</p>
-<blockquote>
-<p>主要检查是否有语法错误</p>
-<p>生成汇编语言</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -S main.i   -o main.s</span><br><span class="line"><span class="comment">//终端打印warning和error</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>汇编</p>
-<blockquote>
-<p>生成二进制机器指令文件.o</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -c main.s -o main.o</span><br><span class="line"><span class="comment">//生成二进制文件</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>链接</p>
-<blockquote>
-<p>加载库文件</p>
-<p>生成最后的可执行文件</p>
-</blockquote>
-<blockquote>
-<p><strong>静态库</strong>：编译链接时，把库文件的代码全部加入到可执行文件中，因此生成的文件比较大，但在运行时也就不再需要库文件了。其后缀名一般为”.a”。</p>
-</blockquote>
-<blockquote>
-<p><strong>动态库</strong>：在编译链接时并没有把库文件的代码加入到可执行文件中，而是在程序执行时由运行时链接文件加载库，这样可以节省系统的开销。动态库一般后缀名为”.so”，如前面所述的libc.so.6就是动态库。Gcc在编译时默认使用动态库。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc  main.o  -o main</span><br><span class="line"><span class="comment">//将汇编文件生成可执行文件main</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>gcc使用</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main</span><br><span class="line"><span class="comment">//相当于直接执行了预编译，编译，汇编，链接四个步骤</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="二、pthread函数"><a href="#二、pthread函数" class="headerlink" title="二、pthread函数"></a>二、pthread函数</h4><ul>
-<li><p>pthread_join（）</p>
-<blockquote>
-<p>函数功能：</p>
-<p>使一个线程等待另一个线程结束</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> ioThread;</span><br><span class="line">pthread_create(&amp;ioThread, <span class="literal">NULL</span>, &amp;gNB_wls_thread, (<span class="keyword">void</span>*)pFwCtrlBlk);</span><br><span class="line"></span><br><span class="line">pthread_join(ioThread, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>pthread_create()创建线程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">config_master</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">config_slave</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">pthread_t</span> pid_master;</span><br><span class="line">	<span class="keyword">pthread_t</span> pid_slave;</span><br><span class="line"></span><br><span class="line">	pthread_create(&amp;pid_master,<span class="literal">NULL</span>,config_master,<span class="literal">NULL</span>);</span><br><span class="line">	</span><br><span class="line">	pthread_create(&amp;pid_slave,<span class="literal">NULL</span>,config_slave,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="comment">//注意 create 使用的是&amp;pid</span></span><br><span class="line">	pthread_join(pid_master,<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	pthread_join(pid_slave,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="comment">//注意 join 使用的是pid</span></span><br><span class="line">    </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"main  end\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">config_master</span><span class="params">()</span>	<span class="comment">//注意是创建的是 指针函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"master start!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">//返回的类型是指针类型</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">config_slave</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"slave start!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/线程使用/" data-id="cjqq5o1280008u0vyfqj8ihh3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-机器学习" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/机器学习/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.562Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h4><hr>
-<h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><blockquote>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/机器学习/" data-id="cjqq5o1260007u0vyl66jmd9b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ubuntu使用" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/ubuntu使用/" class="article-date">
-  <time datetime="2019-01-10T05:10:38.478Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="ubuntu使用"><a href="#ubuntu使用" class="headerlink" title="ubuntu使用"></a>ubuntu使用</h4><hr>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><blockquote>
-<ul>
-<li>切换窗口：</li>
-</ul>
-<p>win+W</p>
-<p>ctr+win+D</p>
-<ul>
-<li>切换应用</li>
-</ul>
-<p>alt+table</p>
-<p>alt+`</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/ubuntu使用/" data-id="cjqq5o11x0005u0vysc6kpmj5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-word文档编辑" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/04/word文档编辑/" class="article-date">
-  <time datetime="2018-12-04T01:44:12.000Z" itemprop="datePublished">2018-12-04</time>
+    <a href="/2018/11/28/git使用/" class="article-date">
+  <time datetime="2018-11-28T01:44:12.000Z" itemprop="datePublished">2018-11-28</time>
 </a>
     
   </div>
@@ -629,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/word文档编辑/">word编辑文档</a>
+      <a class="article-title" href="/2018/11/28/git使用/">git使用</a>
     </h1>
   
 
@@ -637,39 +84,91 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="更改纸张大小"><a href="#更改纸张大小" class="headerlink" title="更改纸张大小"></a>更改纸张大小</h3><blockquote>
-<p>页面布局：纸张大小和方向</p>
+        <h4 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 首先使用git  branch -a查看所有分支</span><br><span class="line">&gt; </span><br><span class="line">&gt; 其次使用git  push  origin  --<span class="keyword">delete</span> &lt;分支名&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; 即可删除远程分支名</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="固定工具栏"><a href="#固定工具栏" class="headerlink" title="固定工具栏"></a>固定工具栏</h4><blockquote>
-<p>双击工具栏菜单即可固定</p>
+<h4 id="保存用户名和密码"><a href="#保存用户名和密码" class="headerlink" title="保存用户名和密码"></a>保存用户名和密码</h4><blockquote>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git config credential.helper store</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="边框格式刷"><a href="#边框格式刷" class="headerlink" title="边框格式刷"></a>边框格式刷</h4><blockquote>
-<ol>
-<li>在所需要的边框右键，出现边框样式选项</li>
-<li>进入选择取样器</li>
-<li>可以进行刷格式</li>
-</ol>
-<p>之后的操作可以更加简洁：</p>
-<ol>
-<li><p>因为取样之后在“设计”工具栏中就出现：</p>
-</li>
-<li><p>边框，边框刷，边框样式，边框的粗细</p>
-</li>
-<li><p>可以直接添加边框进行操作</p>
-</li>
-</ol>
+<h4 id="git设置用户名和密码"><a href="#git设置用户名和密码" class="headerlink" title="git设置用户名和密码"></a>git设置用户名和密码</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">&gt;$ git config --global user.email <span class="string">"email@example.com"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="页边距"><a href="#页边距" class="headerlink" title="页边距"></a>页边距</h4><blockquote>
-<p>布局菜单中</p>
+<h4 id="拉取和推送分支"><a href="#拉取和推送分支" class="headerlink" title="拉取和推送分支"></a>拉取和推送分支</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 推送分支 git push origin dev</span><br><span class="line">&gt; 推送分支 git push origin &lt;本地分支&gt;：&lt;远程分支&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; 拉取分支 git pull origin dev</span><br><span class="line">&gt; 拉取分支 git pull  origin &lt;远程分支&gt;：&lt;本地分支&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="表格行宽-列高"><a href="#表格行宽-列高" class="headerlink" title="表格行宽 列高"></a>表格行宽 列高</h4><blockquote>
-<p>选中表格，右键 表格属性，即可进行设置</p>
+<h4 id="服务器端：从远程拉取分支到本地"><a href="#服务器端：从远程拉取分支到本地" class="headerlink" title="服务器端：从远程拉取分支到本地"></a>服务器端：从远程拉取分支到本地</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 首先新建分支 git checkout -b &lt;新建本地分支名&gt;</span><br><span class="line">&gt; 然后拉取分支 git pull origin &lt;远程分支名&gt;：&lt;本地分支名&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="主机端：拉取远程分支a到本地，修改后再推送到远程分支b"><a href="#主机端：拉取远程分支a到本地，修改后再推送到远程分支b" class="headerlink" title="主机端：拉取远程分支a到本地，修改后再推送到远程分支b"></a>主机端：拉取远程分支a到本地，修改后再推送到远程分支b</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1.</span> 首先新建分支 git checkout -b &lt;新建本地分支名b&gt;</span><br><span class="line">&gt; <span class="number">2.</span> 然后拉取分支 git pull origin &lt;远程分支名a&gt;：&lt;本地分支名b&gt;</span><br><span class="line">&gt; 	...修改b后</span><br><span class="line">&gt; <span class="number">3.</span> 推送分支 git push origin &lt;本地分支b&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>需要删除远程分支</p>
+<h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; git resert --hard &lt;版本号&gt;</span><br><span class="line">&gt; git push -f origin &lt;本地分支&gt;:&lt;远程分支&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; https:<span class="comment">//blog.csdn.net/yxlshk/article/details/79944535</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;当有一个小版本可以跑之后，一定不要再改了，而要在这个分支上再拉一个分支去改</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="拉取分支不是最新的"><a href="#拉取分支不是最新的" class="headerlink" title="拉取分支不是最新的"></a>拉取分支不是最新的</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这是因为这个分支并不是再master上面创建的，而是在一个分支上面创建的子分支</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<h4 id="切换分支出错"><a href="#切换分支出错" class="headerlink" title="切换分支出错"></a>切换分支出错</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;情况一：</span><br><span class="line">&gt;error: Your local changes to the following files would be overwritten by checkout:</span><br><span class="line">&gt;/.....</span><br><span class="line">&gt;/.....</span><br><span class="line">&gt;/.....</span><br><span class="line">&gt;/.....</span><br><span class="line">&gt;</span><br><span class="line">&gt;原因：</span><br><span class="line">&gt;这是因为工作台里面修改的内容没有提交到暂存区，因此转换分支的时候可能会让你做的更改丢失</span><br><span class="line">&gt;</span><br><span class="line">&gt;解决办法：</span><br><span class="line">&gt;回到最顶层的工作目录下，执行：</span><br><span class="line">&gt;git add .</span><br><span class="line">&gt;git commit -m <span class="string">"..."</span></span><br><span class="line">&gt;git checkout &lt;branch&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;情况二：</span><br><span class="line">&gt;切换分支时出现：</span><br><span class="line">&gt;error: cannot stat <span class="string">"file"</span>  Permission denied</span><br><span class="line">&gt;</span><br><span class="line">&gt;解决办法： 退出编辑器、浏览器、资源管理器等，然后再切换就可以了。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="git-pull-拉取远程新的分支到本地-失败"><a href="#git-pull-拉取远程新的分支到本地-失败" class="headerlink" title="git pull  拉取远程新的分支到本地 失败"></a>git pull  拉取远程新的分支到本地 失败</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;不要先  git  checkout -b </span><br><span class="line">&gt;在拉取分支</span><br><span class="line">&gt;因为git  pull是先fetch再merge</span><br><span class="line">&gt;</span><br><span class="line">&gt;而是要git  checkout -b dev1  origin/dev2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="git回退历史版本"><a href="#git回退历史版本" class="headerlink" title="git回退历史版本"></a>git回退历史版本</h4><h4 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h4><blockquote>
+<p>git merge –no-ff lbc_dev #合并开发新功能或者解决了bug的分支，–no-ff 为了生成log表明合并分支</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/04/word文档编辑/" data-id="cjqq5o1210006u0vyojaf8r3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/28/git使用/" data-id="cjqpxujje0000h0vy17sz64qs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-欢迎访问我的博客" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/22/欢迎访问我的博客/" class="article-date">
+  <time datetime="2018-11-21T22:27:26.000Z" itemprop="datePublished">2018-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/欢迎访问我的博客/">欢迎访问我的博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>欢迎来到我的博客主页</p>
+<p><a href="https://juejin.im/entry/5a574864f265da3e3c6c1217" target="_blank" rel="noopener">https://juejin.im/entry/5a574864f265da3e3c6c1217</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/22/欢迎访问我的博客/" data-id="cjqoyz4vg000020vyjabst2j8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -680,11 +179,6 @@
 
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
@@ -702,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
     </div>
   </div>
 
@@ -715,23 +209,11 @@
       <ul>
         
           <li>
-            <a href="/2019/01/10/shell脚本编写/">(no title)</a>
+            <a href="/2018/11/28/git使用/">git使用</a>
           </li>
         
           <li>
-            <a href="/2019/01/10/MatLab使用/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/10/Makefile编写总结/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/10/Linux命令使用/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/10/C++编写/">(no title)</a>
+            <a href="/2018/11/22/欢迎访问我的博客/">欢迎访问我的博客</a>
           </li>
         
       </ul>
