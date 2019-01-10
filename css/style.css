@@ -1912,7 +1912,7 @@ a.article-title:hover {
   background: #9d0f3c;
   margin: 0 -20px;
   padding: 15px 20px;
-  overflow: auto;
+  overflow: hidden;
   color: #ccc;
   line-height: 22.400000000000002px;
 }
@@ -2040,7 +2040,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #000;
+  color: #f2777a;
 }
 pre .number,
 pre .preprocessor,
